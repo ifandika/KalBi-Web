@@ -5,12 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KalBi | Kalkulator Biner</title>
     <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
+    <div class="top">
+        <ul>
+            <li>
+                <i class="bi bi-map"></i>
+                <a href="#home">KalBi_</a>
+            </li>
+            <li id="different"><a href="#home">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li id="github">
+                <a href="https://github.com/ifandika/KalBi-Web">
+                <i class="bi bi-github" style="font-size: 30px;"></i></a>
+            </li>
+            <li id="github">
+                <a href="https://github.com/ifandika/KalBi-Web">
+                <i class="bi bi-moon" style="font-size: 30px;"></i></a>
+            </li>
+        </ul>
+    </div>
+
     <main>
-        <h2>KalBi - Kalkulator Biner for free</h2>
+        <p class="fs-big c-white">KalBi<br>Online Calculator & Convert number for free</p>
         <br />
         <div class="board">
+
+            <div class="board-main">
+                <div class="from">
+                    <select id="type_1">
+                        <option value="Binary" selected>Binary</option>
+                        <option value="Octal">Octal</option>
+                        <option value="Decimal">Decimal</option>
+                        <option value="Hexadecimal">Hexadecimal</option>
+                    </select>
+                    <textarea id="customTextarea" class="custom-textarea" placeholder="Enter text here"></textarea>
+                </div>
+
+                <div class="to">
+
+                </div>
+            </div>
 
             <form action="" method="post">
 

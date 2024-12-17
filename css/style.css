@@ -1,9 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: hsl(0 0% 2%);
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", serif;
+}
+
+.top {
+    top: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    position: absolute;
+}
+.top ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 180px auto 150px 130px 130px;
+}
+.top ul li {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    border-bottom: 0.1em solid rgb(48, 48, 48);
+    border-right: 0.1em solid rgb(48, 48, 48);
+}
+.top ul #different {
+    text-align: right;
+}
+.top ul #github {
+    padding: 10px;
+}
+.top ul li a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
 main {
     width: 100%;
     height: auto;
     text-align: center;
     align-items: center;
-    margin: auto;
+    margin: 100px auto auto auto;
     max-width: 900px;
 }
 
@@ -12,6 +57,26 @@ main {
     background-color: rgb(212, 212, 212);
 }
 
+.board .board-main {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.custom-textarea {
+    width: 400px; /* Set custom width */
+    height: 150px; /* Set custom height */
+    padding: 10px; /* Optional: Add padding */
+    font-size: 16px; /* Optional: Adjust font size */
+    border: 2px solid #ccc; /* Optional: Customize border */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    box-sizing: border-box; /* Ensures padding is included in width/height */
+    resize: none; /* Prevent resizing */
+}
+
+.custom-textarea:focus {
+    border-color: #007BFF; /* Optional: Change border color on focus */
+    outline: none; /* Remove default focus outline */
+}
 .convert {
     background-color: #28a745;
     padding: 10px 20px 10px 20px;
@@ -21,4 +86,11 @@ main {
     font-size: 25px;
     box-shadow: none;
     color: white;
+}
+.c-white {
+    color: white;
+}
+.fs-big {
+    font-size: 40px;
+    font-weight: 400;
 }
