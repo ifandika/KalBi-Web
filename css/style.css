@@ -20,12 +20,12 @@ body {
     padding: 0;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 180px auto 150px 130px 130px;
+    grid-template-columns: 150px auto min-content min-content min-content;
 }
 .top ul li {
     display: block;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     text-decoration: none;
     color: white;
     border-bottom: 0.1em solid rgb(48, 48, 48);
@@ -36,6 +36,7 @@ body {
 }
 .top ul #github {
     padding: 10px;
+    opacity: 0.7;
 }
 .top ul li a {
     color: white;
@@ -53,17 +54,30 @@ main {
 }
 
 .board {
-    border-radius: 5px;
-    background-color: rgb(212, 212, 212);
+    margin-top: 50px;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgb(17, 17, 17);
+    border: 1px rgb(119, 119, 236) solid;
+    /* box-shadow: 0px 0px 30px 10px #8d3636; */
 }
 
 .board .board-main {
+    
+}
+
+.board .board-main .board-top {
     display: grid;
     grid-template-columns: auto auto;
 }
 
+select {
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .custom-textarea {
-    width: 400px; /* Set custom width */
+    width: 550px; /* Set custom width */
     height: 150px; /* Set custom height */
     padding: 10px; /* Optional: Add padding */
     font-size: 16px; /* Optional: Adjust font size */
@@ -87,10 +101,52 @@ main {
     box-shadow: none;
     color: white;
 }
+.c-red {
+    color: rgb(226, 56, 56);
+}
 .c-white {
     color: white;
 }
-.fs-big {
-    font-size: 40px;
+.fs-med {
+    font-size: 30px;
     font-weight: 400;
+    margin: 0;
+}
+.fs-big {
+    font-size: 35px;
+    font-weight: 400;
+    margin: 0;
+}
+.anim-text {
+    position: relative;
+    animation: slideUp 2s ease-out;
+}
+.d-inline {
+    display: inline;
+}
+@keyframes slideUp {
+    0% {
+      transform: translateY(100%); /* Start from below */
+      opacity: 0; /* Optional: Fade in */
+    }
+    100% {
+      transform: translateY(0); /* End at the normal position */
+      opacity: 1;
+    }
+}
+@keyframes border-move {
+    0% {
+      border-image: linear-gradient(90deg, red, orange, yellow, green, blue, violet, red) 1;
+    }
+    100% {
+      border-image: linear-gradient(450deg, red, orange, yellow, green, blue, violet, red) 1;
+    }
+}
+@media screen and (max-width: 700px) {
+    main {
+        max-width: 450px;
+    }
+    .custom-textarea {
+        width: 300px;
+    }
 }

@@ -29,60 +29,113 @@
     </div>
 
     <main>
-        <p class="fs-big c-white">KalBi<br>Online Calculator & Convert number for free</p>
-        <br />
+        <p class="anim-text fs-med c-red">KalBi</p>
+        <p class="anim-text fs-big c-white">Online Calculator & Convert number for free</p>
+        
         <div class="board">
 
             <div class="board-main">
-                <div class="from">
-                    <select id="type_1">
-                        <option value="Binary" selected>Binary</option>
-                        <option value="Octal">Octal</option>
-                        <option value="Decimal">Decimal</option>
-                        <option value="Hexadecimal">Hexadecimal</option>
-                    </select>
-                    <textarea id="customTextarea" class="custom-textarea" placeholder="Enter text here"></textarea>
+                <div class="board-top">
+                    <div class="from">
+                        <p class="fs-med c-white">From</p>
+                        <select id="select_1">
+                            <option value="Binary">Binary</option>
+                            <option value="Octal">Octal</option>
+                            <option value="Decimal">Decimal</option>
+                            <option value="Hexadecimal">Hexadecimal</option>
+                        </select>
+                    </div>
+    
+                    <div class="to">
+                        <p class="fs-med c-white">To</p>
+                        <select id="select_2">
+                            <option value="Binary">Binary</option>
+                            <option value="Octal">Octal</option>
+                            <option value="Decimal">Decimal</option>
+                            <option value="Hexadecimal">Hexadecimal</option>
+                        </select>
+                    </div>
                 </div>
-
-                <div class="to">
-
-                </div>
+                
             </div>
 
-            <form action="" method="post">
-
-            </form>
-
-            <h4>From</h4>
-            <select id="type_1">
-                <option value="Binary" selected>Binary</option>
-                <option value="Octal">Octal</option>
-                <option value="Decimal">Decimal</option>
-                <option value="Hexadecimal">Hexadecimal</option>
-            </select>
-
-            <h4>To</h4>
-            <select id="type_1">
-                <option value="Binary" selected>Binary</option>
-                <option value="Octal">Octal</option>
-                <option value="Decimal">Decimal</option>
-                <option value="Hexadecimal">Hexadecimal</option>
-            </select>
-
-            <br/>
-            <textarea placeholder="Enter number ..." id="w3review" name="w3review" rows="4" cols="50"></textarea>
-
+            <br>
+            <textarea id="ct_input" class="custom-textarea" placeholder="Input here ..."></textarea>
             <br>
             
-            <Button class="convert" type="submit">
+            <Button onclick="convert()" class="convert" type="submit">
                 <img src="https://www.rapidtables.com/lib/icons/material/svg/autorenew_white_24dp.svg" loading="lazy" width="24" height="24" alt="">
                 <b>Convert</b>
             </Button>
 
             <br>
-            <h4>Output</h4>
-            <textarea placeholder="Output ..." id="w3review" name="w3review" rows="4" cols="50"></textarea>
+            <textarea id="ct_output" class="custom-textarea" placeholder="Ouput here ..."></textarea>
+            <br>
         </div>
     </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        // const select1 = document.getElementById("select_1");
+        // const select1_value = select1.value;
+
+        // hideOption(select1_value);
+
+        // const select2 = document.getElementById("select_2");
+        // const select2_value = select2.value;
+
+        function convert() {
+            const input = document.getElementById("ct_input");
+            const input_value = Number(input.value);
+            if (input_value != null) {
+                const tempNumDec = [];
+                let order = 0, temp, rankResult = 0;
+                console.log(input_value.length)
+                for (let i = input_value.length - 1; i >= 0; i--) {
+                    if (input_value[i] !== 0) {
+                        rankResult = rankCalculate(order);
+                        if (order === 0) {
+                            tempNumDec.push(1);
+                        } else {
+                            temp = rankResult;
+                            tempNumDec.push(temp);
+                        }
+                    }
+                    order++;
+                }
+                let finalResult = 0;
+                while (tempNumDec.length > 0) {
+                    finalResult += tempNumDec.pop();
+                }
+
+                console.log(input_value)
+
+                const output = document.getElementById("ct_output");
+                const output_value = Number(finalResult);
+                output.value = output_value.toString();
+            }
+        }
+
+        function rankCalculate(rank) {
+            if (rank === 0) return rank;
+            let pangkat2 = 2;
+            for (let i = 1; i < rank; i++) {
+                pangkat2 *= 2;
+            }
+            return pangkat2;
+        }
+
+        function hideOption(value) {
+            const select = document.getElementById("select_2");
+            for (const option of select.options) {
+                if (option.value === value) {
+                    option.style.display = "none"; // Hides the option
+                }
+            }
+        }
+    </script>
 </body>
 </html>
